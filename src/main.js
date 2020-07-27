@@ -14,6 +14,12 @@ FastClick.attach(document.body);
 import 'css/reset.css'
 import 'css/iconfont.css'
 
+// swiper组件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import 'swiper/css/swiper.css'
+import 'swiper/swiper-bundle.css'
+Vue.use(VueAwesomeSwiper)
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
