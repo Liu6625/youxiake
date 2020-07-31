@@ -5,6 +5,7 @@
         <Home-Icons></Home-Icons>
         <Home-location></Home-location>
         <Home-activity></Home-activity>
+        <Home-hot></Home-hot>
     </div>
 </template>
 <script>
@@ -13,6 +14,7 @@
     import HomeIcons from './pages/Icons'
     import HomeLocation from './pages/Location'
     import HomeActivity from './pages/Activity'
+    import HomeHot from './pages/Hot'
     export default {
         components: {
             HomeHeader,
@@ -20,6 +22,7 @@
             HomeIcons,
             HomeLocation,
             HomeActivity,
+            HomeHot,
         }
     }
 </script>
