@@ -10,18 +10,9 @@
 </template>
 <script>
     export default {
+        props: ['swiperList'],
         data() {
             return {
-                swiperList: [{
-                    id: 0,
-                    imgUrl: require("@/assets/img/swiper1.jpeg")
-                }, {
-                    id: 1,
-                    imgUrl: require("@/assets/img/swiper2.jpg")
-                }, {
-                    id: 2,
-                    imgUrl: require("@/assets/img/swiper3.jpg")
-                }],
                 swiperOptions: {
                     pagination: {
                         el: '.swiper-pagination'

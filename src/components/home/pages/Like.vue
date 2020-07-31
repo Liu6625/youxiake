@@ -13,9 +13,9 @@
                 </div>
                 <div class="like-text">
                     <div class="like-title">{{item.title}}</div>
-                    <div class="like-message">{{item.message}}条评论</div>
+                    <div class="like-message">{{item.msg}}条评论</div>
                     <div class="like-map">
-                        <span class="like-mark">￥<strong>{{item.per}}</strong></span> 起
+                        <span class="like-mark">￥<strong>{{item.pre}}</strong></span> 起
                         <span class="like-location">{{item.map}}</span>
                     </div>
                 </div>
@@ -25,23 +25,10 @@
 </template>
 <script>
     export default {
+        props: ['likeList'],
         data() {
             return {
-                likeList: [{
-                    id: '01',
-                    imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/b43966c7-9962-4d27-bad8-f649eaba6f3f.jpg_r_480x320x95_e1ea8d63.jpg',
-                    title: '长沙-大理 6天跟团游',
-                    message: '1341',
-                    per: '1880',
-                    map: '芙蓉区'
-                }, {
-                    id: '02',
-                    imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/896d92f3-e84d-4d5c-bacf-a923d66e14d0.jpg_r_480x320x95_1e605908.jpg',
-                    title: '长沙-广西 6天跟团游',
-                    message: '1143',
-                    per: '2579',
-                    map: '雨花区'
-                }]
+
             }
         }
     }

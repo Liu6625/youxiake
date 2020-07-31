@@ -20,6 +20,10 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
 Vue.use(VueAwesomeSwiper)
 
+// axios
+import axios from 'axios'
+Vue.prototype.axios = axios
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',

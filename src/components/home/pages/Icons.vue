@@ -4,66 +4,20 @@
             <swiper-slide 
             v-for='(item,key) in page' 
             :key="key">
-                <div class="icons-item" v-for='page in item'>
+                <div class="icons-item" v-for='page in item' :key='page.id'>
                     <img :src="page.imgUrl">
                     <p>{{page.title}}</p>
                 </div>
             </swiper-slide>
-        </swiper>
-
-        
+        </swiper>        
     </div>
 </template>
 <script>
     export default {
+        props: ['iconsList'],
         data() {
             return {
-                swiperOptions: {},
-                iconsList: [{
-                    id: 0,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                    title: "酒店"
-                }, {
-                    id: 1,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                    title: "酒店"
-                }, {
-                    id: 2,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/flight.png",
-                    title: "飞机"
-                }, {
-                    id: 3,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                    title: "酒店"
-                }, {
-                    id: 4,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/train.png",
-                    title: "火车"
-                }, {
-                    id: 5,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                    title: "酒店"
-                }, {
-                    id: 6,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/package.png",
-                    title: "度假"
-                }, {
-                    id: 7,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                    title: "酒店"
-                }, {
-                    id: 8,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/piao.png",
-                    title: "景点门票"
-                }, {
-                    id: 9,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                    title: "酒店"
-                }, {
-                    id: 10,
-                    imgUrl: "https://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                    title: "酒店"
-                }]
+                swiperOptions: {}
             }
         },
         computed: {
