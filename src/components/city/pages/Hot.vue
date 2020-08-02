@@ -36,9 +36,9 @@
 </script>
 <style scoped>
     .hot-title {
-        font-size: .3rem;
+        font-size: .24rem;
         color: #212121;
-        padding: .3rem;
+        padding: .2rem .3rem;
     }
     
     .hot-list {
