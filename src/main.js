@@ -24,10 +24,14 @@ Vue.use(VueAwesomeSwiper)
 import axios from 'axios'
 Vue.prototype.axios = axios
 
+// vuex
+import store from './store'
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,
+    store,
     components: { App },
     template: '<App/>'
 })

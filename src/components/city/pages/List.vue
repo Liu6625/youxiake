@@ -7,7 +7,8 @@
             <ul class="hot-list">
                 <li class="hot-item"
                 v-for='item in hotCities'
-                :key='item.id'>
+                :key='item.id'
+                @click='changeCityName(item.name)'>
                     {{item.name}}
                 </li>
             </ul>
@@ -34,7 +35,8 @@
                 <ul class="list-msg">
                     <li class="list-item"
                     v-for='item in val' 
-                    :key='item.id'>
+                    :key='item.id'
+                    @click='changeCityName(item.name)'>
                         {{item.name}}
                     </li>
                 </ul>
@@ -45,7 +47,10 @@
 
 </template>
 <script>
-    import BScroll from '@better-scroll/core'
+    import {
+        mapMutations
+    } from 'vuex';
+    import BScroll from '@better-scroll/core';
     // import BScroll from 'better-scroll'
     export default {
         props: ['hotCities', 'cities'],
@@ -61,8 +66,13 @@
         methods: {
             changeSort(sortName) {
                 this.scroll.scrollToElement(this.$refs[sortName][0]);
-                // console.log(this.$refs[sortName][0])
-            }
+                console.log(this.$refs[sortName][0])
+            },
+            changeCityName(cityName) {
+                this.changeCity(cityName)
+                this.$router.push('/');
+            },
+            ...mapMutations(['changeCity'])
         }
     }
 </script>
@@ -102,6 +112,7 @@
     }
     
     .hot-item {
+        position: relative;
         float: left;
         width: 33.3333%;
         height: 0.9rem;
@@ -125,6 +136,7 @@
     }
     
     .sort-item {
+        position: relative;
         float: left;
         width: 16.6666%;
         height: 0.9rem;
@@ -158,12 +170,13 @@
         content: '';
         position: absolute;
         left: 75%;
-        width: 75%;
+        width: 0%;
         height: 100%;
         border-left: .02rem solid #ddd;
     }
     
     .list-item {
+        position: relative;
         float: left;
         width: 25%;
         line-height: 0.9rem;
