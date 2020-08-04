@@ -7,7 +7,8 @@
         <ul>
             <li class="like-item border-bottom"
             v-for='item in likeList'
-            :key='item.id'>
+            :key='item.id'
+            @click='toDetails'>
                 <div class="like-img">
                     <img :src="item.imgUrl" alt="">
                 </div>
@@ -29,6 +30,11 @@
         data() {
             return {
 
+            }
+        },
+        methods: {
+            toDetails() {
+                this.$router.push('/detail')
             }
         }
     }
