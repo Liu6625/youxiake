@@ -11,6 +11,9 @@
     </div>
 </template>
 <script>
+    import {
+        mapState
+    } from 'vuex'
     import HomeHeader from './pages/Header'
     import HomeSwiper from './pages/Swiper'
     import HomeIcons from './pages/Icons'
@@ -36,20 +39,47 @@
                 iconsList: [],
                 hotList: [],
                 likeList: [],
-                vacationList: []
+                vacationList: [],
+                changeCity: ''
+            }
+        },
+        computed: {
+            ...mapState(['city'])
+        },
+        methods: {
+            getHttp() {
+                this.axios.get("http://localhost:8080/static/mock/dataHome.json")
+                    .then((res) => {
+                        // console.log(res.data.data[0]);
+                        const data = res.data.data;
+                        data.forEach((item, index) => {
+                            if (item.city == this.city) {
+                                this.swiperList = item.swiperList;
+                                this.iconsList = item.iconsList;
+                                this.hotList = item.hotList;
+                                this.likeList = item.likeList;
+                                this.vacationList = item.vacationList;
+                            } else {
+                                this.swiperList = data[0].swiperList;
+                                this.iconsList = data[0].iconsList;
+                                this.hotList = data[0].hotList;
+                                this.likeList = data[0].likeList;
+                                this.vacationList = data[0].vacationList;
+                            }
+                        })
+
+                    })
             }
         },
         mounted() {
-            this.axios.get("http://localhost:8080/static/mock/dataHome.json")
-                .then((res) => {
-                    // console.log(res.data.data[0]);
-                    const data = res.data.data[0];
-                    this.swiperList = data.swiperList;
-                    this.iconsList = data.iconsList;
-                    this.hotList = data.hotList;
-                    this.likeList = data.likeList;
-                    this.vacationList = data.vacationList;
-                })
+            this.changeCity = this.city
+            this.getHttp()
+        },
+        activated() {
+            if (this.changeCity != this.city) {
+                this.getHttp();
+                this.changeCity = this.city;
+            }
         }
     }
 </script>
