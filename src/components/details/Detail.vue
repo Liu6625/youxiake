@@ -12,6 +12,9 @@
         components: {
             DetailBanner,
             DetailHeader
+        },
+        activated() {
+            document.documentElement.scrollTop = 0;
         }
     }
 </script>

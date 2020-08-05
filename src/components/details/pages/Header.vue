@@ -3,7 +3,7 @@
         <div class="header-return"
         v-show="showHeader">
             <span class="border-return"></span>
-            <span class="iconfont return">&#xe624;</span>
+            <span class="iconfont return" @click='toHome'>&#xe624;</span>
         </div>
         <div class="header-top"
 		v-show='!showHeader'
